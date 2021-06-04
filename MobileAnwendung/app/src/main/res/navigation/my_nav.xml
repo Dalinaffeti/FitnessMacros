@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/personalFragment">
+
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.example.myernaehrungapplication.fragments.personal.personalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_goalFragment"
+            app:destination="@id/goalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalFragment"
+        android:name="com.example.myernaehrungapplication.fragments.goal.goalFragment"
+        android:label="fragment_goal"
+        tools:layout="@layout/fragment_goal" >
+        <action
+            android:id="@+id/action_goalFragment_to_personalFragment2"
+            app:destination="@id/personalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutritionFragment"
+        android:name="com.example.myernaehrungapplication.fragments.nutrition.nutritionFragment"
+        android:label="fragment_nutrition"
+        tools:layout="@layout/fragment_nutrition" />
+</navigation>
