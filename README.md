@@ -1,14 +1,14 @@
-ErnährunsApp
+**ErnährunsApp**
 
-Teammitglieder:
+**Teammitglieder**:
     Mohamed Ali Naffeti
     Wajdi Hellali
 
-Struktur:
+**Struktur**:
     Sprache: Kotlin
     SDK: Android 23 (Marshmallow)
     Database: Room 
-Inhalt(Aktivities):
+**Inhalt(Aktivities):**
     Login|Registration
     Persönliche eingaben
     Ziel
