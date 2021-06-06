@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.example.myernaehrungapplication.fragments.personal.personalFragment"
-        android:label="fragment_personal"
+        android:label="personal informations"
         tools:layout="@layout/fragment_personal" >
         <action
             android:id="@+id/action_personalFragment_to_goalFragment"
@@ -17,15 +17,22 @@
     <fragment
         android:id="@+id/goalFragment"
         android:name="com.example.myernaehrungapplication.fragments.goal.goalFragment"
-        android:label="fragment_goal"
+        android:label="goal section"
         tools:layout="@layout/fragment_goal" >
         <action
             android:id="@+id/action_goalFragment_to_personalFragment2"
             app:destination="@id/personalFragment" />
+        <action
+            android:id="@+id/action_goalFragment_to_nutritionFragment"
+            app:destination="@id/nutritionFragment" />
     </fragment>
     <fragment
         android:id="@+id/nutritionFragment"
         android:name="com.example.myernaehrungapplication.fragments.nutrition.nutritionFragment"
-        android:label="fragment_nutrition"
-        tools:layout="@layout/fragment_nutrition" />
+        android:label="nutrition section"
+        tools:layout="@layout/fragment_nutrition" >
+        <action
+            android:id="@+id/action_nutritionFragment_to_goalFragment"
+            app:destination="@id/goalFragment" />
+    </fragment>
 </navigation>
