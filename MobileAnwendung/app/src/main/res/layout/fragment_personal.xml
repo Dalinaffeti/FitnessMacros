@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.personal.personalFragment">
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -21,52 +22,171 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="71dp" />
+        android:layout_marginStart="24dp"
+
+        android:layout_marginTop="50dp"
+        android:text="Welcome"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="135dp" />
+        android:text="First Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="201dp" />
+        android:text="Last Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstname" />
 
-    <!-- <EditText
-         android:id="@+id/firstname"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:ems="10"
-         android:inputType="textPersonName"
-         android:text="first Name"
-         android:layout_marginTop="50dp"
-         tools:layout_editor_absoluteX="90dp"
-         tools:layout_editor_absoluteY="64dp" />-->
-
-    <!--<EditText
-        android:id="@+id/lastlname"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="last Name"
-        android:layout_marginTop="16dp"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="-101dp" />-->
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toBottomOf="@id/lastname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/weighttitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Weight in Kg"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/weightd"
+                    android:layout_below="@id/weighttitle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_decrease"
+                    android:layout_marginStart="40dp"
+                    />
+
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="80"
+                    android:layout_below="@id/weighttitle"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/weighti"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_increase"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/weighttitle"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/heighttitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Height in cm"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/heightd"
+                    android:layout_below="@id/heighttitle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_decrease"
+                    android:layout_marginStart="40dp"
+                    />
+
+                <TextView
+                    android:id="@+id/height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="180"
+                    android:layout_below="@id/heighttitle"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/heighti"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_increase"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/heighttitle"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
