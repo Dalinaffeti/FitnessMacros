@@ -25,6 +25,14 @@
         <action
             android:id="@+id/action_goalFragment_to_nutritionFragment"
             app:destination="@id/nutritionFragment" />
+        <argument
+            android:name="weight"
+            android:defaultValue="80"
+            app:argType="integer" />
+        <argument
+            android:name="height"
+            android:defaultValue="180"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/nutritionFragment"

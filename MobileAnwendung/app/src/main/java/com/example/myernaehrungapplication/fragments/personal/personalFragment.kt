@@ -11,10 +11,13 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.myernaehrungapplication.R
 import com.example.myernaehrungapplication.databinding.FragmentPersonalBinding
 import kotlinx.android.synthetic.main.fragment_personal.view.*
+
+
 
 
 class personalFragment : Fragment() {
@@ -74,17 +77,28 @@ class personalFragment : Fragment() {
         }*/
         binding.weighti.setOnClickListener { onIncrease() }
         binding.weightd.setOnClickListener { onDecrease() }
-        binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_personalFragment_to_goalFragment)
-        }
+        binding.floatingActionButton.setOnClickListener {PersonalFinished()}
         return binding.root
         /*return view*/
     }
     private fun onIncrease() {
         viewModel.onIncrease()
+
+/*
+        binding.weight.text= viewModel.weight.value.toString()
+*/
+
     }
     private  fun onDecrease() {
         viewModel.onDecrease()
-    }
 
+/*
+      binding.weight.text= viewModel.weight.value.toString()
+*/
+    }
+    private fun PersonalFinished(){
+        val action = personalFragmentDirections.actionPersonalFragmentToGoalFragment()
+        action.weight = viewModel.weight.value!!
+        NavHostFragment.findNavController(this).navigate(action)
+    }
 }
