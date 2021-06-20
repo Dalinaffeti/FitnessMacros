@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+   <data>
+       <variable
+           name="personalViewModel"
+           type="com.example.myernaehrungapplication.fragments.personal.PersonalViewModel" />
+   </data> 
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.personal.personalFragment">
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -98,6 +104,9 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/ic_decrease"
                     android:layout_marginStart="40dp"
+
+                    android:onClick="decrease"
+
                     />
 
                 <TextView
@@ -105,11 +114,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:text="80"
                     android:layout_below="@id/weighttitle"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    tools:text="80"/>
 
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -120,6 +129,8 @@
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="2dp"
                     android:layout_below="@id/weighttitle"
+
+
                     />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -190,3 +201,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
