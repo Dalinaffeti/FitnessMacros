@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.myernaehrungapplication.R
+import kotlinx.android.synthetic.main.fragment_nutrition.view.*
+import kotlinx.android.synthetic.main.fragment_personal.view.*
 
 
 class nutritionFragment : Fragment() {
@@ -14,9 +17,16 @@ class nutritionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nutrition, container, false)
+        val view = inflater.inflate(R.layout.fragment_nutrition, container, false)
+        view.floatingActionButton4.setOnClickListener {
+            findNavController().navigate(R.id.action_nutritionFragment_to_goalFragment);
+        }
+        return view;
     }
+
 
 
 

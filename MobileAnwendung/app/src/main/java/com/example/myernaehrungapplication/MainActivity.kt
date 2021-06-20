@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import kotlinx.android.synthetic.main.fragment_goal.*
 
 class MainActivity : AppCompatActivity() {
     //EditText username, password, repassword;
@@ -15,5 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(findNavController(R.id.fragment))
     }
+
 
 }

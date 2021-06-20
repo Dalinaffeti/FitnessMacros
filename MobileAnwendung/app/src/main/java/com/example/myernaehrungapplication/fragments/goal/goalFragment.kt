@@ -22,6 +22,9 @@ class goalFragment : Fragment() {
         view.floatingActionButton2.setOnClickListener {
             findNavController().navigate(R.id.action_goalFragment_to_nutritionFragment)
         }
+        view.floatingActionButton3.setOnClickListener {
+            findNavController().navigate(R.id.action_goalFragment_to_personalFragment2);
+        }
         return view
     }
 
