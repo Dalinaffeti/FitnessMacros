@@ -33,6 +33,14 @@
             android:name="height"
             android:defaultValue="180"
             app:argType="integer" />
+        <argument
+            android:name="age"
+            android:defaultValue="25"
+            app:argType="integer" />
+        <argument
+            android:name="sexe"
+            android:defaultValue="male"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/nutritionFragment"

@@ -11,12 +11,40 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
+        android:id="@+id/weightFromPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="weight"
+        android:layout_marginStart="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="-199dp"
         tools:layout_editor_absoluteY="37dp" />
+    <TextView
+        android:id="@+id/heightFromPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="height"
+        app:layout_constraintTop_toBottomOf="@id/weightFromPersonal"
+        app:layout_constraintStart_toStartOf="@id/weightFromPersonal"/>
+    <TextView
+        android:id="@+id/sexeFromPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/heightFromPersonal"
+        app:layout_constraintStart_toStartOf="@id/heightFromPersonal"
+        android:text="sexe"
+        />
+    <TextView
+        android:id="@+id/ageFromPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sexeFromPersonal"
+        app:layout_constraintStart_toStartOf="@id/sexeFromPersonal"
+        android:text="age"
+        />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
