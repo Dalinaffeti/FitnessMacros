@@ -20,14 +20,16 @@
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="-199dp"
-        tools:layout_editor_absoluteY="37dp" />
+        tools:layout_editor_absoluteY="37dp"
+        android:orientation="horizontal"/>
     <TextView
         android:id="@+id/heightFromPersonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="height"
         app:layout_constraintTop_toBottomOf="@id/weightFromPersonal"
-        app:layout_constraintStart_toStartOf="@id/weightFromPersonal"/>
+        app:layout_constraintStart_toStartOf="@id/weightFromPersonal"
+        android:orientation="horizontal"/>
     <TextView
         android:id="@+id/sexeFromPersonal"
         android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/heightFromPersonal"
         app:layout_constraintStart_toStartOf="@id/heightFromPersonal"
         android:text="sexe"
+        android:orientation="horizontal"
         />
     <TextView
         android:id="@+id/ageFromPersonal"
@@ -43,7 +46,105 @@
         app:layout_constraintTop_toBottomOf="@id/sexeFromPersonal"
         app:layout_constraintStart_toStartOf="@id/sexeFromPersonal"
         android:text="age"
+        android:orientation="horizontal"
         />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="please select how activ you are"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ageFromPersonal"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Spinner
+        android:id="@+id/spActivities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        android:entries="@array/Activitlevel"
+        />
+    <TextView
+        android:id="@+id/goaltitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spActivities"
+        app:layout_constraintStart_toStartOf="@id/spActivities"
+        android:text="what is your goal ?"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/layoutRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/goaltitle"
+        app:layout_constraintStart_toStartOf="@id/goaltitle">
+
+        <RadioGroup
+            android:id="@+id/radioGroupGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/lose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lose weight"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/maintain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="maitain weight"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/gain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gain weight"
+                android:textSize="15dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/goalkgstitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layoutRadio"
+        app:layout_constraintStart_toStartOf="@id/goaltitle"
+        android:text="How much per week ?"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+    <Spinner
+        android:id="@+id/spinnerGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/goalkgstitle"
+        app:layout_constraintTop_toBottomOf="@id/goalkgstitle"
+        android:entries="@array/GoalArray"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinnerGoal"
+        app:layout_constraintStart_toStartOf="@+id/spinnerGoal"
+        android:id="@+id/yourCalories"
+        android:text="" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,6 +158,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton3"

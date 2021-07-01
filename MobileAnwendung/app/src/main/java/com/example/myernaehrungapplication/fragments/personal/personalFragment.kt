@@ -136,7 +136,7 @@ class personalFragment : Fragment() {
 
     }
     private  fun onDecreaseW() {
-        viewModel.onDecreaseHeight()
+        viewModel.onDecreaseWeight()
 
 /*
       binding.weight.text= viewModel.weight.value.toString()
