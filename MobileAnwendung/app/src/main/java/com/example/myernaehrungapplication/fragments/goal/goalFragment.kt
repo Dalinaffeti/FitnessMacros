@@ -84,7 +84,7 @@ class goalFragment : Fragment() {
                             "Active" -> pa =1.27
                             "Very active" -> pa =1.54
                         }
-                        calories = 864 - 9.72 * ageValue + pa * (14.2 * weightCalculate + 503 * heightCalculate)
+
                     }
                     else
                         if(gender =="female"){
@@ -94,10 +94,10 @@ class goalFragment : Fragment() {
                                 "Active" -> pa =1.27
                                 "Very active" -> pa =1.45
                             }
-                            calories = 387 - 7.31 * ageValue + pa * (10.9 * weightCalculate + 660.7 * heightCalculate)
+
                         }
 
-                    Toast.makeText(activity, calories.toString()+" Calories",Toast.LENGTH_LONG).show()
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -130,22 +130,43 @@ class goalFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val kgs = parent?.getItemAtPosition(position)
-                Toast.makeText(activity, "You selected ${kgs.toString()} kgs",
+                val kgs = parent?.getItemAtPosition(position).toString().toDouble()
+                Toast.makeText(activity, "You selected ${kgs} kgs",
                     Toast.LENGTH_LONG).show()
-
+                if(gender =="female")
                 when(goal){
 
                     lose.text.toString() -> {
-                        calories = calories - (77000 /Double.mod(kgs) )
-                    }
-                    maintain.text.toString() -> {
+
+                        calories = 387 - 7.31 * ageValue + pa * (10.9 * (weightCalculate-kgs) + 660.7 * heightCalculate)
 
                     }
+                    maintain.text.toString() -> {
+                        calories = 387 - 7.31 * ageValue + pa * (10.9 * weightCalculate + 660.7 * heightCalculate)
+                    }
                     gain.text.toString() -> {
+                        calories = 387 - 7.31 * ageValue + pa * (10.9 * (weightCalculate+kgs) + 660.7 * heightCalculate)
 
                     }
                 }
+                else
+                if( gender == "male")
+                {
+                    when(goal){
+
+                        lose.text.toString() -> {
+
+                            calories = 864 - 9.72 * ageValue + pa * (14.2 * (weightCalculate-kgs) + 503 * heightCalculate)
+                        }
+                        maintain.text.toString() -> {
+                            calories = 864 - 9.72 * ageValue + pa * (14.2 * weightCalculate + 503 * heightCalculate)                        }
+                        gain.text.toString() -> {
+                            calories = 864 - 9.72 * ageValue + pa * (14.2 * (weightCalculate+kgs) + 503 * heightCalculate)
+                        }
+                    }
+                }
+                Toast.makeText(activity, "Your calories ${calories}",
+                    Toast.LENGTH_LONG).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
