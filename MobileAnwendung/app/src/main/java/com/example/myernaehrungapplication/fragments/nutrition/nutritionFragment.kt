@@ -97,7 +97,8 @@ class nutritionFragment : Fragment() {
 
         binding.pieChart.data= data
         binding.pieChart.holeRadius = 5f
-
+        binding.pieChart.setDescription("Macronutrients divided after user wish")
+        binding.pieChart.animateY(3000)
 
 
     }
