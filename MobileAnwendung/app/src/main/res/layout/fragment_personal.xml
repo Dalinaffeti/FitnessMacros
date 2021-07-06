@@ -39,73 +39,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="First Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome" />
-
-    <EditText
-        android:id="@+id/lastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Last Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstname" />
-
     <LinearLayout
+        android:id="@+id/linear_layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/linear_layout1"
-        android:layout_marginTop="20dp"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintTop_toBottomOf="@id/lastname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="257dp">
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview1"
-            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cardElevation="8dp"
+            android:layout_weight="1"
             app:cardCornerRadius="8dp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" >
+            app:cardElevation="8dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/weighttitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:textSize="20dp"
-                    android:text="Weight in Kg"
                     android:gravity="center"
-                    android:textColor="@color/black"/>
+                    android:padding="8dp"
+                    android:text="Weight in Kg"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/weightd"
-                    android:layout_below="@id/weighttitle"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_below="@id/weighttitle"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/ic_decrease"
-                    android:layout_marginStart="40dp"
 
                     android:onClick="decrease"
 
@@ -115,22 +92,22 @@
                     android:id="@+id/weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
                     android:layout_below="@id/weighttitle"
-                    android:textStyle="bold"
                     android:gravity="center"
+                    android:padding="8dp"
                     android:textColor="@color/black"
-                    tools:text="80"/>
+                    android:textStyle="bold"
+                    tools:text="80" />
 
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/weighti"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/ic_increase"
+                    android:layout_below="@id/weighttitle"
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="2dp"
-                    android:layout_below="@id/weighttitle"
+                    android:background="@drawable/ic_increase"
 
 
                     />
@@ -138,89 +115,86 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cardElevation="8dp"
+            android:layout_weight="1"
             app:cardCornerRadius="8dp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
+            app:cardElevation="8dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/heighttitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Height in cm"
-                    android:textSize="20dp"
-                    android:gravity="center"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/heightd"
-                    android:layout_below="@id/heighttitle"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/ic_decrease"
+                    android:layout_below="@id/heighttitle"
                     android:layout_marginStart="40dp"
-                    />
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_decrease" />
 
                 <TextView
                     android:id="@+id/height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/heighttitle"
+                    android:gravity="center"
                     android:padding="8dp"
                     android:text="180"
-                    android:layout_below="@id/heighttitle"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/heighti"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/ic_increase"
+                    android:layout_below="@id/heighttitle"
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="2dp"
-                    android:layout_below="@id/heighttitle"
-                    />
+                    android:background="@drawable/ic_increase" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-
-
-
 
 
     </LinearLayout>
 
 
+    <RadioGroup
+        android:id="@+id/radioGroupmf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout1"
+        tools:layout_editor_absoluteX="20dp">
 
-        <RadioGroup
-            android:id="@+id/radioGroupmf"
+        <RadioButton
+            android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout1"
-            app:layout_constraintStart_toStartOf="@id/firstname">
+            android:text="female"
+            android:textSize="20dp" />
 
-            <RadioButton
-                android:id="@+id/female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="female"
-                android:textSize="20dp" />
-
-            <RadioButton
-                android:id="@+id/male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="male"
-                android:textSize="20dp" />
-        </RadioGroup>
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="male"
+            android:textSize="20dp" />
+    </RadioGroup>
 
         <TextView
             android:id="@+id/selectDate"

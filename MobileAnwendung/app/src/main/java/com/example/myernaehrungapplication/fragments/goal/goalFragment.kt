@@ -12,11 +12,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
 import com.example.myernaehrungapplication.R
 import com.example.myernaehrungapplication.databinding.FragmentGoalBinding
+import com.example.myernaehrungapplication.fragments.personal.personalFragmentDirections
 import kotlinx.android.synthetic.main.fragment_goal.*
 import kotlinx.android.synthetic.main.fragment_goal.view.*
 import kotlinx.android.synthetic.main.fragment_personal.*
@@ -187,7 +189,10 @@ class goalFragment : Fragment() {
             findNavController().navigate(R.id.action_goalFragment_to_personalFragment2);
         }
         binding.floatingActionButton2.setOnClickListener {
-            findNavController().navigate(R.id.action_goalFragment_to_nutritionFragment);
+            val action = goalFragmentDirections.actionGoalFragmentToNutritionFragment()
+            action.calories = calories.toString()
+
+            NavHostFragment.findNavController(this).navigate(action)
         }
         return binding.root
     }

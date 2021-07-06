@@ -50,5 +50,9 @@
         <action
             android:id="@+id/action_nutritionFragment_to_goalFragment"
             app:destination="@id/goalFragment" />
+        <argument
+            android:name="calories"
+            android:defaultValue="0"
+            app:argType="string"/>
     </fragment>
 </navigation>
