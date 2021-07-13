@@ -3,36 +3,143 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/personalFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.example.myernaehrungapplication.fragments.personal.personalFragment"
-        android:label="personal informations"
+        android:label="Home"
         tools:layout="@layout/fragment_personal" >
         <action
             android:id="@+id/action_personalFragment_to_goalFragment"
-            app:destination="@id/goalFragment" />
+            app:destination="@id/goalFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+
+        <action
+            android:id="@+id/action_personalFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/personalFragment"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/action_personalFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+
     </fragment>
     <fragment
         android:id="@+id/goalFragment"
         android:name="com.example.myernaehrungapplication.fragments.goal.goalFragment"
-        android:label="goal section"
+        android:label="Goal"
         tools:layout="@layout/fragment_goal" >
         <action
             android:id="@+id/action_goalFragment_to_personalFragment2"
-            app:destination="@id/personalFragment" />
+            app:destination="@id/personalFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_goalFragment_to_nutritionFragment"
-            app:destination="@id/nutritionFragment" />
+            app:destination="@id/nutritionFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <argument
+            android:name="weight"
+            android:defaultValue="80"
+            app:argType="integer" />
+        <argument
+            android:name="height"
+            android:defaultValue="180"
+            app:argType="integer" />
+        <argument
+            android:name="age"
+            android:defaultValue="25"
+            app:argType="integer" />
+        <argument
+            android:name="sexe"
+            android:defaultValue="male"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/nutritionFragment"
         android:name="com.example.myernaehrungapplication.fragments.nutrition.nutritionFragment"
-        android:label="nutrition section"
+        android:label="Nutrition"
         tools:layout="@layout/fragment_nutrition" >
         <action
+            android:id="@+id/action_nutritionFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
             android:id="@+id/action_nutritionFragment_to_goalFragment"
-            app:destination="@id/goalFragment" />
+            app:destination="@id/goalFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <argument
+            android:name="calories"
+            android:defaultValue="0"
+            app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.myernaehrungapplication.fragments.login.loginFragment"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"/>
+
+        <action
+            android:id="@+id/action_loginFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.myernaehrungapplication.fragments.registration.registrationFragment"
+        android:label="Registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.example.myernaehrungapplication.fragments.tracking.TrackingFragment"
+        android:label="Tracking" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myernaehrungapplication.fragments.Profile.ProfileFragment"
+        android:label="Profile" />
+
 </navigation>
