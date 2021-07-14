@@ -1,9 +1,10 @@
-package com.example.myernaehrungapplication.data
+package com.example.myernaehrungapplication.data.User
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "user_table")
+@Entity(tableName = "user_table", indices = [Index(value = ["email"], unique = true)])
 data class User (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
@@ -11,12 +12,7 @@ data class User (
     val password: String,
     val firstname: String,
     val lastnamename: String,
-    val goal: String,
-    val weight: String,
-    val height: String,
-    val sex: Char,
-    val age: Int,
-    val job: String,
+
 
 
 )

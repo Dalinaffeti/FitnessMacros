@@ -1,31 +1,35 @@
 package com.example.myernaehrungapplication.fragments.personal
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.myernaehrungapplication.R
+import com.example.myernaehrungapplication.data.Personal.PersonalEntity
+import com.example.myernaehrungapplication.data.Personal.PersonalViewModel
 import com.example.myernaehrungapplication.databinding.FragmentPersonalBinding
+import kotlinx.android.synthetic.main.fragment_personal.*
 import kotlinx.android.synthetic.main.fragment_personal.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
 class personalFragment : Fragment() {
     var age: Int = 0
-    private lateinit var binding : FragmentPersonalBinding
+    private lateinit var binding: FragmentPersonalBinding
     private lateinit var viewModel: PersonalViewModel
-    var sexe: String =""
-    /*private lateinit var binding: PersonalFragmentBinding
-    private lateinit var viewModel: PersonalViewModel*/
+    var gender: String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,30 +47,20 @@ class personalFragment : Fragment() {
         viewModel.height.observe(viewLifecycleOwner, Observer { newHeight ->
             binding.height.text = newHeight.toString()
         })
-       /* viewModel.age.observe(viewLifecycleOwner, Observer { newAge ->
-            binding.age.text = newAge.toString()
-        })*/
-        
-        
+        /* viewModel.age.observe(viewLifecycleOwner, Observer { newAge ->
+             binding.age.text = newAge.toString()
+         })*/
 
 
-
-
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_personal, container, false)
-        view.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_personalFragment_to_goalFragment)
+        binding.radioGroupmf.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId == R.id.female) {
+                gender = "female"
+                //Toast.makeText(activity, "female selected", Toast.LENGTH_LONG).show()
+            } else {
+                gender = "male"
+                //Toast.makeText(activity, "male selected", Toast.LENGTH_LONG).show()
+            }
         }
-    binding.radioGroupmf.setOnCheckedChangeListener { group, checkedId ->
-        if(checkedId == R.id.female) {
-            sexe = "female"
-            Toast.makeText(activity, "female selected",Toast.LENGTH_LONG).show()
-        }
-        else {
-            sexe = "male"
-            Toast.makeText(activity, "male selected",Toast.LENGTH_LONG).show()
-        }
-    }
 
 
 
@@ -75,19 +69,24 @@ class personalFragment : Fragment() {
             var cDay = c.get(Calendar.DAY_OF_MONTH)
             var cMonth = c.get(Calendar.MONTH)
             var cYear = c.get(Calendar.YEAR)
-            val calendarDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener {
-                    view, year, month, dayOfMonth ->
-                cDay = dayOfMonth
-                cMonth = month
-                cYear = year
-                textMessage("you selected the date: $cDay/${cMonth+1}/$cYear")
-                val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-                age = currentYear - cYear
-                binding.age.visibility = View.VISIBLE
-                binding.age.text = "you are $age years old"
-                textMessage("you are $age years old")
+            val calendarDialog = DatePickerDialog(
+                requireActivity(),
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    cDay = dayOfMonth
+                    cMonth = month
+                    cYear = year
+                    //textMessage("you selected the date: $cDay/${cMonth + 1}/$cYear")
+                    val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+                    age = currentYear - cYear
+                    binding.age.visibility = View.VISIBLE
+                    binding.age.text = "you are $age years old"
+                    //textMessage("you are $age years old")
 
-            }, cYear,cMonth, cDay)
+                },
+                cYear,
+                cMonth,
+                cDay
+            )
 
             calendarDialog.show()
         }
@@ -118,10 +117,16 @@ class personalFragment : Fragment() {
         binding.weightd.setOnClickListener { onDecreaseW() }
         binding.heighti.setOnClickListener { onIncreaseH() }
         binding.heightd.setOnClickListener { onDecreaseH() }
-        binding.floatingActionButton.setOnClickListener {PersonalFinished()}
+        binding.floatingActionButton.setOnClickListener { PersonalFinished() }
         return binding.root
         /*return view*/
     }
+
+
+
+
+
+
 
     private fun textMessage(s: String) {
         Toast.makeText(activity, s, Toast.LENGTH_SHORT).show()
@@ -135,7 +140,8 @@ class personalFragment : Fragment() {
 */
 
     }
-    private  fun onDecreaseW() {
+
+    private fun onDecreaseW() {
         viewModel.onDecreaseWeight()
 
 /*
@@ -144,23 +150,42 @@ class personalFragment : Fragment() {
     }
 
 
-    private fun onIncreaseH(){
+    private fun onIncreaseH() {
         viewModel.onIncreaseHeight()
     }
 
-    private fun onDecreaseH(){
+    private fun onDecreaseH() {
         viewModel.onDecreaseHeight();
     }
 
 
+    private fun PersonalFinished() {
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val createdAt: String = formatter.format(Date())
+        val info = PersonalEntity(0, "", viewModel.weight.value!!, viewModel.height.value!!, gender, age, createdAt)
+        viewModel.addPersonalInfo(info).observe(viewLifecycleOwner, { insertedId ->
+            if(insertedId.toInt() != -1){
+                val action = personalFragmentDirections.actionPersonalFragmentToGoalFragment()
+                action.age = age
+                action.sexe = gender
+                action.weight = viewModel.weight.value!!
+                action.height = viewModel.height.value!!
 
-    private fun PersonalFinished(){
-        val action = personalFragmentDirections.actionPersonalFragmentToGoalFragment()
-        action.age = age
-        action.sexe = sexe
-        action.weight = viewModel.weight.value!!
-        action.height = viewModel.height.value!!
+                NavHostFragment.findNavController(this).navigate(action)
+            } else {
+                Toast.makeText(requireContext(),"Personal Info is not added in database",Toast.LENGTH_SHORT).show()
+            }
+        })
 
-        NavHostFragment.findNavController(this).navigate(action)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }
