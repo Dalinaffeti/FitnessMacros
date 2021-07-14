@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_personalFragment_to_goalFragment"
             app:destination="@id/goalFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/goalFragment"
@@ -54,5 +60,35 @@
             android:name="calories"
             android:defaultValue="0"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_nutritionFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.myernaehrungapplication.fragments.login.loginFragment"
+        android:label="loginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.myernaehrungapplication.fragments.registration.registrationFragment"
+        android:label="registrationFragment" >
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myernaehrungapplication.fragments.Profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.example.myernaehrungapplication.fragments.tracking.TrackingFragment"
+        android:label="TrackingFragment" />
 </navigation>
