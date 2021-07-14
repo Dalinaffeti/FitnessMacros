@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.example.myernaehrungapplication.fragments.personal.personalFragment"
-        android:label="personal informations"
+        android:label="personal information"
         tools:layout="@layout/fragment_personal" >
         <action
             android:id="@+id/action_personalFragment_to_goalFragment"
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.myernaehrungapplication.fragments.login.loginFragment"
-        android:label="loginFragment" >
+        android:label="login" >
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
@@ -78,7 +78,7 @@
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.myernaehrungapplication.fragments.registration.registrationFragment"
-        android:label="registrationFragment" >
+        android:label="registration" >
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -90,5 +90,5 @@
     <fragment
         android:id="@+id/trackingFragment"
         android:name="com.example.myernaehrungapplication.fragments.tracking.TrackingFragment"
-        android:label="TrackingFragment" />
+        android:label="Tracking section" />
 </navigation>

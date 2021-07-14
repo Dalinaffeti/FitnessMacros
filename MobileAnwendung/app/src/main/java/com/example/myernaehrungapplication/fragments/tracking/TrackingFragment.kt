@@ -109,32 +109,10 @@ class TrackingFragment : Fragment() {
             }
         })
 
-        SetLineChartData()
+
     }
 
-    fun SetLineChartData(){
 
-        val xvalue= ArrayList<String>()
-        xvalue.add("11.00 AM")
-        xvalue.add("12.00 AM")
-        xvalue.add("1.00 AM")
-        xvalue.add("3.00 PM")
-        xvalue.add("7.00 PM")
-
-        val lineetry = ArrayList<Entry>();
-        lineetry.add(Entry(20f, 0))
-        lineetry.add(Entry(50f, 1))
-        lineetry.add(Entry(60f, 2))
-        lineetry.add(Entry(30f, 3))
-        lineetry.add(Entry(10f, 4))
-
-        val linedataset=LineDataSet(lineetry, "First")
-        linedataset.color=resources.getColor(R.color.blue)
-        val data = LineData(xvalue, linedataset)
-        linechart.data =data
-        linechart.setBackgroundColor(resources.getColor(R.color.white))
-        linechart.animateXY(3000, 3000)
-    }
 
 
 
