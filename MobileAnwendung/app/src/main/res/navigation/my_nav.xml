@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/personalFragment">
+
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.example.myernaehrungapplication.fragments.personal.personalFragment"
+        android:label="personal informations"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_goalFragment"
+            app:destination="@id/goalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalFragment"
+        android:name="com.example.myernaehrungapplication.fragments.goal.goalFragment"
+        android:label="goal section"
+        tools:layout="@layout/fragment_goal" >
+        <action
+            android:id="@+id/action_goalFragment_to_personalFragment2"
+            app:destination="@id/personalFragment" />
+        <action
+            android:id="@+id/action_goalFragment_to_nutritionFragment"
+            app:destination="@id/nutritionFragment" />
+        <argument
+            android:name="weight"
+            android:defaultValue="80"
+            app:argType="integer" />
+        <argument
+            android:name="height"
+            android:defaultValue="180"
+            app:argType="integer" />
+        <argument
+            android:name="age"
+            android:defaultValue="25"
+            app:argType="integer" />
+        <argument
+            android:name="sexe"
+            android:defaultValue="male"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutritionFragment"
+        android:name="com.example.myernaehrungapplication.fragments.nutrition.nutritionFragment"
+        android:label="nutrition section"
+        tools:layout="@layout/fragment_nutrition" >
+        <action
+            android:id="@+id/action_nutritionFragment_to_goalFragment"
+            app:destination="@id/goalFragment" />
+        <argument
+            android:name="calories"
+            android:defaultValue="0"
+            app:argType="string"/>
+    </fragment>
+</navigation>
