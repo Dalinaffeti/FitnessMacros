@@ -183,8 +183,8 @@ class goalFragment : Fragment() {
         }*/
 
         binding.floatingActionButton3.setOnClickListener {
-            //findNavController().navigate(R.id.action_goalFragment_to_personalFragment2);
-            activity?.onBackPressed()
+            findNavController().navigate(R.id.action_goalFragment_to_personalFragment2);
+            /*activity?.onBackPressed()*/
         }
         binding.floatingActionButton2.setOnClickListener {
             when {

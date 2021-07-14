@@ -125,6 +125,37 @@ class personalFragment : Fragment() {
 
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        ivMoreOptions.setOnClickListener(View.OnClickListener {
+            showOptions(it)
+        })
+    }
+
+    private fun showOptions(view: View) {
+        val popup = PopupMenu(context, view)
+        val inflater = popup.menuInflater
+        inflater.inflate(R.menu.menu_options, popup.menu)
+        popup.show()
+        popup.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.optionLogout -> Logout()
+                R.id.optionProfile -> findNavController().navigate(R.id.action_personalFragment_to_profileFragment)
+            }
+            return@setOnMenuItemClickListener true
+        }
+    }
+
+    private fun Logout() {
+        val sharedPreferences =
+            context?.getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+        editor?.putBoolean("IS_LOGGED_IN", false)
+        editor?.putString("LOGGED_IN_EMAIL", "")
+        editor?.apply()
+        findNavController().navigate(R.id.action_personalFragment_to_loginFragment)
+    }
 
 
 

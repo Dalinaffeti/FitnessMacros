@@ -55,7 +55,7 @@ class nutritionFragment : Fragment() {
             findNavController().navigate(R.id.action_nutritionFragment_to_goalFragment)
         }
         binding.floatingActionButton2.setOnClickListener {
-
+            findNavController().navigate(R.id.action_nutritionFragment_to_trackingFragment)
         }
 
         return binding.root;
